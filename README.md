@@ -2,7 +2,7 @@
 
 I'm passionate about **coding** and **engineering**. It's not only the feeling I get when I start typing on my keyboard with a cup of American coffee and the pleasure of building something, but also many other aspects, including the idea that doing this allows me to **leverage** my efforts and outcome, helping me tackle problems (starting from the small ones I face every day).
 
-When I was younger, I chose physics because I had the naive feeling that I could learn how the world works, solve any problem, and at the same time not miss the opportunity to set aside a whole series of subjects and topics about which I was deeply curious (chemistry, math, physics, programming, etc.).
+When I was younger, I chose to study physics because I had the naive feeling that I could learn how the world works, solve any problem, and at the same time not miss the opportunity to set aside a whole series of subjects and topics about which I was deeply curious (chemistry, math, physics, programming, etc.).
 
 Over the years, I have experimented, studied, and worked in various sectors and roles (today, I am challenging myself as the tech founder of a project that I hope to tell you more about in the future), however, coding and building were consistent elements throughout all my experiences. At the same time there has been an increasing awareness of the importance that access to a quality data stream have now and more will have in the future.
 
