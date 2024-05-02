@@ -1,3 +1,8 @@
 {
-  "index": "Introduction"
+  "index": "Introduction",
+  "mentalmodel": "Mental Model",
+  "orchestrator": "Orchestrator",
+  "resources": "Resources",
+  "jobinterview": "Data Enginner Job Interview",
+  "styling": "Styling"
 }
