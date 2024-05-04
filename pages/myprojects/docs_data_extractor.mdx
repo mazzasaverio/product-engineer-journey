@@ -1,0 +1,85 @@
+### Pipeline Docs Data Extractor
+
+As human beings, we continually strive to impose order on a universe that is inherently governed by entropy.
+
+We enjoy organizing, categorizing, and instantly accessing specific information. Simultaneously, the word of supervised learning is fundamentally driven by the labeling process.
+
+I labeled a lot in the past, and it wasn't so fun, but it was the only way to obtain decent predictions from certain projects (we're talking about 3 years ago). Now, thanks to advancements in generative AI, we can use LLM models to extract structured data from documents with good metrics and participate in the loop only as validators. I don't know how many fellows realize what a great thing this is.
+
+Let's start trying to build a pipeline to extract **structured** data from documents in the best way I can.
+
+#### Pipeline Steps
+
+The data extraction pipeline includes the following key stages:
+
+- **Scraping Documents**: Utilizing **Scrapy** for both crawling and scraping documents.
+- **Text Extraction**: Employing the Unstructured Package to extract text from the documents.
+- **Text Processing**: Refining and preparing the text for data extraction.
+- **Data Extraction**: Using **Langchain** and **OpenAI** to extract structured data from the processed text.
+- **Human Validation**: Ensuring the accuracy and reliability of the extracted data through human verification.
+- **Data Storage**: Storing the extracted data in a structured database for further use.
+
+For the moment, we assign a specific version only to the pipeline and not to each step to avoid complicating the process too much.
+
+#### Getting Started with Scraping
+
+Let's get started! Our first step is to collect the documents. As data engineers, it's crucial for us to understand where to find data and how to obtain it following some necessary best practices. For both crawling and scraping tasks, we'll use Scrapy. Metadata management for our list of document URLs will be handled by an SQLite database. These URLs can be submitted in two ways:
+
+1. **Uploading from a CSV File**: URLs can be uploaded from a CSV file into an SQLite table, ensuring no duplicate URLs are added.
+2. **Developing a Crawler**: In future iterations, a crawler can be developed to automatically gather URLs.
+
+Before starting the scraping process, it is crucial to ensure that the necessary database exists. If not, the database should be initialized:
+
+```bash
+cd scrapy_docs
+python init_database.py
+```
+
+## Loading URLs
+
+To manage the URLs for document download, execute the following script to load URLs from a specified file:
+
+```bash
+python database/url_loader.py
+```
+
+To run the scraper
+
+```bash
+scrapy crawl docs
+```
+
+Using FilesPipeline of scrapy we are able to download the files and store in a storage setted in the settings.py file. By default the name of the file is the sha256 hash of the url.
+
+We will store also the metadata defined by the following model:
+
+```python
+class ListUrls(Base):
+    __tablename__ = "list_urls"
+
+    id = Column(Integer, primary_key=True)
+    url = Column(String)
+    file_name = Column(String)
+    new_file_name = Column(String)
+    status = Column(String)
+    downloaded_at = Column(DateTime, default=datetime.now(timezone.utc))
+```
+
+Where file_name is the name of the file downloaded and new_file_name is the hash assigned by scrapy. So we try to download the file only if is the status is not downloaded before
+
+## Text Extraction
+
+The text extraction phase involves extracting text from the downloaded documents. We will utilize the Unstructured Package to extract text from these documents.
+Unstructured is a valuable (and inevitable) project that focuses on the fact that an LLM is like an engine without fuel if we don't have good quality data."
+
+Currently, we will focus on extracting text from PDFs with the high_res parameter to achieve the highest quality text, including from PDFs that necessitate OCR.
+
+Let's run 0_text_extraction_service.py to extract text from the downloaded documents:
+
+```bash
+python 0_text_extraction_service.py
+```
+
+## Text Processing
+
+(To be continued...)

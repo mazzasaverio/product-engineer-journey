@@ -1,4 +1,3 @@
 {
-  "airflow": "Airflow",
-  "dagster": "Dagster"
+  "airflow": "Airflow"
 }
