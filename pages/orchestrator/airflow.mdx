@@ -1,3 +1,36 @@
-### Awsome Books
+### Improved Text: Deploying Airflow in GCP
 
-### Awsome Repository
+#### Introduction to GCP Services
+
+Google Cloud Platform (GCP) offers a variety of services tailored for deploying software applications. Each service caters to different needs, ensuring that there is no one-size-fits-all solution, which allows for flexibility in deployment strategies.
+
+#### Compute Engine
+
+Compute Engine provides virtual machines that grant users the freedom to run any software. This service offers complete control over the virtual environment, which is beneficial for those who need custom configurations. However, this level of control also means that users are responsible for managing and configuring the virtual machines themselves.
+
+#### Cloud Functions
+
+Alternatively, GCP's Cloud Functions allow users to deploy small, single-purpose functions written in supported languages like Python. For example, a function could return the current time in a specified time zone. Cloud Functions are designed for light, event-driven workloads and automatically scale under heavy loads. This service manages all aspects of operation, including logging and monitoring, requiring users only to provide the function code.
+
+#### Challenges with Deploying Airflow
+
+Setting up Airflow on GCP is complex due to its need for shared storage for DAG files, especially when using CeleryExecutor or KubernetesExecutor. This requirement limits the deployment options within GCP:
+
+- **Cloud Functions**: These are unsuitable for Airflow as they are intended for stateless, event-based functions.
+- **App Engine**: While it's possible to deploy Airflow on App Engine, there are significant limitations. App Engine typically hosts applications that are not distributed systems and expects a single Docker container per service. Airflow, being a distributed system with separate webserver and scheduler components, does not conform to this model.
+
+#### Optimal Choices for Airflow
+
+The remaining viable options for deploying Airflow in GCP are Google Compute Engine (GCE) and Google Kubernetes Engine (GKE):
+
+- **Google Kubernetes Engine (GKE)**: GKE is an excellent choice for Airflow due to its support for Helm charts, which simplify the deployment process. GKE also facilitates the use of shared filesystems across multiple pods, an essential feature for Airflow.
+- **Compute Engine**: For those who prefer more control, GCE offers the flexibility to configure environments extensively. Users can choose between a standard Linux-based VM or a container-optimized OS (COS) VM. However, the COS VM does not support NFS out-of-the-box, which is necessary for Airflow's shared DAG storage. Thus, a Linux-based VM is recommended for its compatibility with NFS.
+
+#### Supporting Services
+
+For supporting services like the metastore and log storage:
+
+- **Cloud SQL**: This service supports both MySQL and PostgreSQL and can serve as the metastore for Airflow.
+- **Google Cloud Storage (GCS)**: For storing logs, GCS provides a robust and scalable object storage solution.
+
+In summary, deploying Airflow on GCP is most effectively achieved using Google Kubernetes Engine. This approach leverages GKE's managed services and scalability, making it a straightforward choice for handling Airflow's complex requirements.

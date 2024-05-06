@@ -1,0 +1,171 @@
+## Singly and Doubly Linked Lists
+
+### Definition and Structure
+
+A **linked list** is a fundamental data structure that organizes items sequentially, with each item containing the data itself and a reference (or link) to the next item in the sequence. This structure allows for efficient insertion and removal of elements, which makes linked lists an essential alternative to arrays.
+
+#### Singly Linked List
+
+A **singly linked list** is characterized by nodes that each hold a data value and a reference to the next node, forming a unidirectional sequence. The first node is known as the **head**, and the last node, which points to `None`, is known as the **tail**.
+
+#### Doubly Linked List
+
+In contrast, a **doubly linked list** allows traversal in both directions. Each node in a doubly linked list contains a reference to both the next node and the previous node.
+
+### Key Differences from Arrays
+
+While both arrays and linked lists store elements in a linear order, there are notable differences:
+
+- **Memory Allocation**: Linked lists use dynamic memory allocation allowing elements to be easily inserted or removed. Arrays require a contiguous block of memory, and resizing them is computationally expensive.
+- **Access Time**: Accessing an element by index in an array is efficient (O(1) time complexity), whereas in linked lists, you must traverse from the head to the desired position, resulting in O(n) time complexity.
+
+### Operations and Complexity
+
+- **Insertion/Deletion**: Linked lists can add or remove nodes very efficiently (O(1) time complexity) if the node immediately before the point of action is known.
+- **Search**: Searching for a value in linked lists has a time complexity of O(n) due to the need to traverse from the start of the list to find the desired node.
+
+### Implementation
+
+Below is a simple Python implementation of a singly linked list node:
+
+```python
+class ListNode:
+    def __init__(self, data=0, next_node=None):
+        self.data = data
+        self.next = next_node
+```
+
+This class defines a node with two attributes: `data`, which stores the value of the node, and `next`, which points to the subsequent node in the list.
+
+### Essential Operations
+
+#### Searching
+
+To search for a value in a singly linked list, the following method traverses the list until it finds the desired key or reaches the end of the list.
+
+```python
+def search_list(L, key):
+    while L and L.data != key:
+        L = L.next
+    return L  # Returns None if key is not found
+```
+
+This function returns the node containing the key if found; otherwise, it returns `None`.
+
+#### Insertion
+
+To insert a new node after a specified node in a singly linked list:
+
+```python
+def insert_after(node, new_node):
+    new_node.next = node.next
+    node.next = new_node
+```
+
+This method inserts `new_node` right after `node` by updating the `next` pointers.
+
+#### Deletion
+
+To delete a node from a singly linked list (assuming it is not the last node):
+
+```python
+def delete_after(node):
+    node.next = node.next.next
+```
+
+This function removes the node immediately following `node` by skipping it in the list traversal.
+
+### Complexity and Optimization
+
+Insertion and deletion at known locations have O(1) time complexity as they require only pointer updates. Searching and deleting by value require traversing the list, with O(n) time complexity where n is the number of nodes.
+
+List problems often use O(n) space, but optimizing to O(1) space by utilizing existing nodes can be more efficient.
+
+The textbook section provided discusses how to merge two sorted linked lists efficiently, a common problem in data structures that can be approached in different ways. Let's refine the explanation and include the missing variant solution for doubly linked lists.
+
+---
+
+## Merging Two Sorted Linked Lists
+
+### Problem Description
+
+Given two singly linked lists where each node contains a number and the lists are sorted in ascending order, the objective is to merge these two lists into a single sorted linked list. The merged list should be formed by splicing together the nodes of the first two lists.
+
+### Solution Approach
+
+**Optimal Solution**:
+Instead of combining the lists and then sorting, a more time-efficient approach involves traversing both lists and selectively linking nodes from the two lists based on their values. This method ensures that the resulting list remains sorted without additional sorting operations.
+
+Here’s how you can implement this:
+
+```python
+class ListNode:
+    def __init__(self, data=0, next=None):
+        self.data = data
+        self.next = next
+
+def merge_two_sorted_lists(L1, L2):
+    dummy_head = tail = ListNode()
+    while L1 and L2:
+        if L1.data < L2.data:
+            tail.next, L1 = L1, L1.next
+        else:
+            tail.next, L2 = L2, L2.next
+        tail = tail.next
+    tail.next = L1 or L2
+    return dummy_head.next
+```
+
+In Python, variables that hold objects (like instances of a class) are references to memory locations where the objects are stored. When you set `dummy_head = tail = ListNode()`, both `dummy_head` and `tail` are referencing the same memory location—the newly created `ListNode` object.
+
+Here's what happens step by step, which might help clarify:
+
+1. **Initialization**:
+
+   - `dummy_head` and `tail` point to the same initial dummy `ListNode` object.
+
+2. **Adding the First Node**:
+
+   - Suppose the first node from `L1` or `L2` (let's say `L1`) is smaller. You then execute `tail.next = L1`. Now, the `next` attribute of the object that `tail` (and `dummy_head`) references points to the first node of `L1`.
+   - At this point, `dummy_head.next` also points to this first node because `dummy_head` and `tail` were initially the same object. So, updating `tail.next` is effectively updating `dummy_head.next` as well.
+
+3. **Moving `tail`**:
+
+   - When you update `tail` to `tail.next` (by `tail = tail.next`), you're changing `tail` to point to `L1`, the current first node, while `dummy_head` still points to the original dummy node. From this point on, `tail` moves along the new linked list being created, but `dummy_head` stays at the starting position.
+
+4. **Subsequent Updates**:
+   - Every time you link a new node (via `tail.next = ...`), you are appending to the list that starts from `dummy_head.next`.
+   - `tail` continues to move to reference the latest node added (`tail = tail.next`), but `dummy_head` remains at the initial position, always pointing to the dummy node.
+
+### Time Complexity
+
+The time complexity for this solution is \(O(n + m)\), where \(n\) and \(m\) are the lengths of the two linked lists, respectively. This approach is more efficient than combining and then sorting the lists, which would have a complexity of \(O((n+m) \log(n+m))\).
+
+### Variant: Merging Doubly Linked Lists
+
+For doubly linked lists, the approach remains similar but with an additional step of setting the previous pointer for each node.
+
+```python
+class DoubleListNode:
+    def __init__(self, data=0, prev=None, next=None):
+        self.data = data
+        self.prev = prev
+        self.next = next
+
+def merge_two_sorted_doubly_lists(L1, L2):
+    dummy_head = tail = DoubleListNode()
+    while L1 and L2:
+        if L1.data < L2.data:
+            tail.next, L1 = L1, L1.next
+            tail.next.prev = tail
+        else:
+            tail.next, L2 = L2, L2.next
+            tail.next.prev = tail
+        tail = tail.next
+    tail.next = L1 or L2
+    if tail.next:
+        tail.next.prev = tail
+    return dummy_head.next
+```
+
+These solutions provide efficient methods for merging sorted linked lists, taking advantage of their inherent order to minimize computational complexity. The singly linked list solution is straightforward, while the doubly linked list solution requires careful management of both `next` and `prev` pointers to maintain the bidirectional structure. Both ensure that the resulting list remains sorted and efficiently utilizes existing nodes without requiring additional space or complex operations.
