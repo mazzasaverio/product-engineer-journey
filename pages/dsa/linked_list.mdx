@@ -169,3 +169,109 @@ def merge_two_sorted_doubly_lists(L1, L2):
 ```
 
 These solutions provide efficient methods for merging sorted linked lists, taking advantage of their inherent order to minimize computational complexity. The singly linked list solution is straightforward, while the doubly linked list solution requires careful management of both `next` and `prev` pointers to maintain the bidirectional structure. Both ensure that the resulting list remains sorted and efficiently utilizes existing nodes without requiring additional space or complex operations.
+
+### Reverse a Single Sublist
+
+Given a singly linked list and two integers `start` and `finish`, the task is to reverse the nodes of the list from position `start` to `finish`, inclusive. The head of the list is at position 1.
+
+```python
+def reverse_sublist(L, start, finish):
+    dummy_head = ListNode(0, L)
+    sublist_head = dummy_head
+    for _ in range(1, start):
+        sublist_head = sublist_head.next
+
+    # Reverses sublist.
+    sublist_iter = sublist_head.next
+    for _ in range(finish - start):
+        temp = sublist_iter.next
+        sublist_iter.next, temp.next, sublist_head.next = (temp.next, sublist_head.next, temp)
+
+    return dummy_head.next
+```
+
+The unpacking in the node swapping section is clever but might be confusing for some. More descriptive variable names and perhaps an additional line or two of comments might help clarify the operations being performed.
+
+Here's an improved version of the function:
+
+```python
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def reverse_sublist(L, start, finish):
+    if start >= finish:  # No need to reverse if start and finish are the same
+        return L
+
+    dummy_head = ListNode(0, L)
+    sublist_head = dummy_head
+    for _ in range(1, start):
+        sublist_head = sublist_head.next
+
+    # Reverses the sublist
+    sublist_iter = sublist_head.next
+    for _ in range(finish - start):
+        temp = sublist_iter.next
+        # Remove temp from the list
+        sublist_iter.next = temp.next
+        # Insert temp after sublist_head
+        temp.next = sublist_head.next
+        sublist_head.next = temp
+
+    return dummy_head.next
+```
+
+- **Maintaining References**: The code carefully maintains references to both the preceding part of the list and the part following the reversed sublist, ensuring seamless integration of the reversed section back into the list.
+- **Time Complexity**: Remains O(f) since it traverses the list to locate the `finish` node.
+- **Space Complexity**: O(1) - no additional space is used besides the temporary pointers.
+
+### Example Code Without Dummy Head
+
+Here's how you might implement this:
+
+```python
+def reverse_sublist(L, start, finish):
+    if start >= finish:
+        return L
+
+    prev = None
+    current = L
+    for _ in range(1, start):
+        prev = current
+        current = current.next
+
+    # Reversal process
+    tail = current
+    prev_sublist = prev
+    for _ in range(finish - start + 1):
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+
+    # Reconnect the first part
+    if prev_sublist:
+        prev_sublist.next = prev
+    else:
+        L = prev  # New head of the list
+
+    # Reconnect the last part
+    tail.next = current
+
+    return L
+```
+
+### Advantages and Disadvantages
+
+**Advantages**:
+
+- Less memory usage as no additional node is created.
+- Directly manipulates the original list structure.
+
+**Disadvantages**:
+
+- More complex code, particularly in handling special cases where the sublist starts at the head or the list is very short.
+- Higher risk of errors in maintaining the integrity of the list during operations.
+
+Using a `dummy_head` simplifies such operations by eliminating the need for conditional checks around the head of the list, thus making the code more robust and easier to manage. However, either approach can be suitable depending on the specific requirements and constraints of the problem at hand.
