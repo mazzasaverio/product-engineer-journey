@@ -1,13 +1,7 @@
-# Data Engineer Journey
+# Next.js 15 Social Media App
 
-I'm passionate about **coding** and **engineering**. It's not only the feeling I get when I start typing on my keyboard with a cup of American coffee and the pleasure of building something, but also many other aspects, including the idea that doing this allows me to **leverage** my efforts and outcome, helping me tackle problems (starting from the small ones I face every day).
+A full-stack social media app with infinite loading, optimistic updates, authentication, DMs, notifications, file uploads, and much more.
 
-When I was younger, I chose to study physics because I had the naive feeling that I could learn how the world works, solve any problem, and at the same time not miss the opportunity to set aside a whole series of subjects and topics about which I was deeply curious (chemistry, math, physics, programming, etc.).
+Watch the free tutorial on YouTube: https://www.youtube.com/watch?v=TyV12oBDsYI
 
-Over the years, I have experimented, studied, and worked in various sectors and roles (today, I am challenging myself as the tech founder of a project that I hope to tell you more about in the future), however, coding and building were consistent elements throughout all my experiences. At the same time there has been an increasing awareness of the importance that access to a quality data stream have now and more will have in the future.
-
-Not only will it be critical for businesses, but it will also emerge as a core skill for individuals (here's my two cents on the prediction): In the coming decades, being able to code, utilize AI assistants, and manage data will constitute the new literacy. These skills will pave the way for increased creativity, enhanced problem-solving, and accelerated learning across diverse fields and aspects of life.
-
-Thus, the role of a data engineer (as difficult as it is to define the boundaries of a role) is the one that most closely aligns with what I enjoy and like to do, and the value I feel I can provide by continually acquiring and improving these skills.
-
-Therefore, I decided to start tracking my learning, tips, code, building projects, ideas, and curiosities that I discover on my development journey. I hope that others might find interesting insights, discover their own paths, and enjoy the journey as well.
+![thumbnail 7](https://github.com/user-attachments/assets/686b37e4-3d16-4bc4-a7f2-9d152c3addf5)

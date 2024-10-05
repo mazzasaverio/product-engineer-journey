@@ -1,0 +1,19 @@
+model Parks {
+  id              String   @id @default(cuid())
+  postId          String
+  name            String
+  description     String
+  address         String
+  city            String
+  latitude        Float
+  longitude       Float
+  openingHours    String
+  types           String
+  rating          Float
+  userRatingTotal Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  zonaOmi         String?  @default("-")
+
+  @@map("parchi")
+}

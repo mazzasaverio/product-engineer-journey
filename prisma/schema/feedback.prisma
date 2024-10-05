@@ -1,0 +1,38 @@
+model Feedback {
+  id          String           @id @default(cuid())
+  content     String
+  userId      String
+  createdAt   DateTime         @default(now())
+  title       String           @default("")
+  comments    Comment[]
+  likes       LikeFeedback[]
+  attachments MediaFeedbacks[]
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("feedbacks")
+}
+
+model Comment {
+  id         String   @id @default(cuid())
+  content    String
+  userId     String
+  createdAt  DateTime @default(now())
+  feedbackId String
+  updatedAt  DateTime @updatedAt
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("feedback_comments")
+}
+
+model LikeFeedback {
+  userId     String
+  feedbackId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, feedbackId])
+  @@map("feedback_likes")
+}

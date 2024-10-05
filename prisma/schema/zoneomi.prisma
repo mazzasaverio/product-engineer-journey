@@ -1,0 +1,29 @@
+model Zona {
+    id                 String   @id @default(cuid())
+    zona               String?
+    zona_descr         String?
+    microzona          Float?
+    cod_tip_prev       Int?
+    regione            String?
+    prov               String?
+    comune_descrizione String?
+    fascia             String?
+    cod_tip            Int?
+    descr_tipologia    String?
+    stato              String?
+    stato_prev         String?
+    compr_min          Float?
+    compr_max          Float?
+    sup_nl_compr       String?
+    loc_min            String?
+    loc_max            String?
+    sup_nl_loc         String?
+    anno               String?
+    semestre           String?
+    data_elaborazione  String?
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    @@unique([regione, prov, zona, microzona, anno, semestre])
+    @@map("zona")
+}

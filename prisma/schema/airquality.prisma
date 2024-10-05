@@ -1,0 +1,16 @@
+model AirQualityData {
+    id                 String   @id @default(cuid())
+    code               String
+    displayName        String
+    concentrationValue Float
+    concentrationUnits String
+    centroidLat        Float
+    centroidLng        Float
+    postId             String
+    zoneOMI            String?
+    city               String?
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    @@map("air_quality_data")
+}

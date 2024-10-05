@@ -1,0 +1,2263 @@
+/home/sam/github/wheretolive
+├── 1500x500.jpeg
+├── actions
+├── app
+│   ├── api
+│   │   ├── clear-uploads
+│   │   │   └── route.ts
+│   │   ├── feedbacks
+│   │   │   ├── [feedbackId]
+│   │   │   │   ├── comments
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── likes
+│   │   │   │       └── route.ts
+│   │   │   └── route.ts
+│   │   ├── posts
+│   │   │   ├── bookmarked
+│   │   │   │   └── route.ts
+│   │   │   ├── features
+│   │   │   │   └── route.ts
+│   │   │   ├── [postId]
+│   │   │   │   ├── bookmark
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── features
+│   │   │   │       └── [featureId]
+│   │   │   │           ├── likes
+│   │   │   │           │   └── route.ts
+│   │   │   │           └── rating
+│   │   │   │               └── route.ts
+│   │   │   └── route.ts
+│   │   ├── uploadthing
+│   │   │   ├── core.ts
+│   │   │   └── route.ts
+│   │   └── webhooks
+│   │       └── clerk
+│   │           └── route.ts
+│   ├── apple-touch-icon.png
+│   ├── (auth)
+│   │   ├── sign-in
+│   │   │   └── [[...sign-in]]
+│   │   │       └── page.tsx
+│   │   └── sign-up
+│   │       └── [[...sign-up]]
+│   │           └── page.tsx
+│   ├── favicon.ico
+│   ├── fonts
+│   │   ├── GeistMonoVF.woff
+│   │   └── GeistVF.woff
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── (main)
+│   │   ├── _components
+│   │   │   ├── FeedbackButton.tsx
+│   │   │   └── Navbar.tsx
+│   │   ├── feedbacks
+│   │   │   ├── _components
+│   │   │   │   └── NavbarFeedbacks.tsx
+│   │   │   └── page.tsx
+│   │   ├── home
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── MenuBar.tsx
+│   │   ├── not-found.tsx
+│   │   └── page.tsx
+│   ├── ReactQueryProvider.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── code_report.py
+├── components.json
+├── custom_tree_and_files_corrected.txt
+├── .env
+├── .env.development
+├── env.example
+├── .env.production
+├── .env.sentry-build-plugin
+├── .eslintrc.json
+├── .gitignore
+├── hCpKRlrK_400x400.jpg
+├── hooks
+│   ├── useDebounce.ts
+│   └── useMediaUpload.ts
+├── LICENSE
+├── middleware.ts
+├── next.config.mjs
+├── next-env.d.ts
+├── package.json
+├── postcss.config.mjs
+├── prettier.config.js
+├── prisma
+│   ├── migrations
+│   │   ├── 20240827091614_init
+│   │   │   └── migration.sql
+│   │   ├── 20240827091933_add_default_rating
+│   │   │   └── migration.sql
+│   │   ├── 20240827231024_add_features_and_post_features
+│   │   │   └── migration.sql
+│   │   ├── 20240827231347_make_rating_optional
+│   │   │   └── migration.sql
+│   │   ├── 20240828072242_roll_back_20240827091933_add_default_rating
+│   │   │   └── migration.sql
+│   │   ├── 20240828075006_add_features_and_likes
+│   │   │   └── migration.sql
+│   │   ├── 20240828080732_add_features_and_likes_2
+│   │   │   └── migration.sql
+│   │   ├── 20240901080919_add_type_post
+│   │   │   └── migration.sql
+│   │   ├── 20240903193909_add_columns_medi
+│   │   │   └── migration.sql
+│   │   ├── 20240907095123_reset_db
+│   │   │   └── migration.sql
+│   │   ├── 20240907095329_remove_comments
+│   │   │   └── migration.sql
+│   │   ├── 20240907112326_add_two_omi_metrics
+│   │   │   └── migration.sql
+│   │   ├── 20240907112518_add_two_omi_metrics
+│   │   │   └── migration.sql
+│   │   ├── 20240907120701_add_updated_at_posts
+│   │   │   └── migration.sql
+│   │   ├── 20240907120823_add_updated_at_posts
+│   │   │   └── migration.sql
+│   │   ├── 20240907133337_name_tabes
+│   │   │   └── migration.sql
+│   │   ├── 20240908081241_add_parks
+│   │   │   └── migration.sql
+│   │   ├── 20240908091045_edit_media
+│   │   │   └── migration.sql
+│   │   ├── 20240908114034_update_post_table
+│   │   │   └── migration.sql
+│   │   ├── 20240908120307_update_post_table
+│   │   │   └── migration.sql
+│   │   ├── 20240910094101_add_omi_zone
+│   │   │   └── migration.sql
+│   │   ├── 20240912181633_add_feedbacks
+│   │   │   └── migration.sql
+│   │   ├── 20240913153234_add_title_feedbacks
+│   │   │   └── migration.sql
+│   │   ├── 20240913171655_update_media_feedback
+│   │   │   └── migration.sql
+│   │   ├── 20240913175120_updat_users
+│   │   │   └── migration.sql
+│   │   ├── 20240915191915_updat_users_profile
+│   │   │   └── migration.sql
+│   │   ├── 20240915211111_updat_features
+│   │   │   └── migration.sql
+│   │   ├── 20240915223516_updat_features
+│   │   │   └── migration.sql
+│   │   ├── 20240915223820_updat_features
+│   │   │   └── migration.sql
+│   │   ├── 20240922134123_add_main_address_and_metrics
+│   │   │   └── migration.sql
+│   │   ├── 20240922144852_add_main_address_and_metrics
+│   │   │   └── migration.sql
+│   │   ├── 20240922162057_update_centroid_posts_zone_omi
+│   │   │   └── migration.sql
+│   │   ├── 20240923103622_update_zone_omi_and_microzone
+│   │   │   └── migration.sql
+│   │   ├── 20240923113741_update_zone_omi_and_microzone
+│   │   │   └── migration.sql
+│   │   ├── 20240924141150_sync_with_database
+│   │   │   └── migration.sql
+│   │   ├── 20240925083324_add_airquality_data
+│   │   │   └── migration.sql
+│   │   ├── 20240925085830_add_airquality_data
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   └── schema
+│       ├── airquality.prisma
+│       ├── feature.prisma
+│       ├── feedback.prisma
+│       ├── googlemapsdata.prisma
+│       ├── main.prisma
+│       ├── media.prisma
+│       ├── post.prisma
+│       ├── user.prisma
+│       └── zoneomi.prisma
+├── README.md
+├── tailwind.config.ts
+├── tsconfig.json
+├── types
+│   └── metricMappings.ts
+├── utils
+│   └── helpers.ts
+└── vercel.json
+
+75 directories, 109 files
+
+
+=== Content of /home/sam/github/wheretolive/components.json ===
+
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/middleware.ts ===
+
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+
+// Protect all routes except /api/uploadthing
+const isProtectedRoute = createRouteMatcher([
+  "/home(.*)",
+  "/bookmarks(.*)",
+  "/search(.*)",
+]);
+
+export default clerkMiddleware((auth, request) => {
+  if (isProtectedRoute(request)) {
+    auth().protect();
+  }
+
+  return NextResponse.next();
+});
+
+export const config = {
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+
+    // Always run for API routes, but exclude /api/uploadthing
+    "/(api|trpc)(.*)",
+  ],
+};
+
+
+=== Content of /home/sam/github/wheretolive/prettier.config.js ===
+
+module.exports = {
+  plugins: ["prettier-plugin-tailwindcss"],
+};
+
+
+=== Content of /home/sam/github/wheretolive/tailwind.config.ts ===
+
+import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
+import { withUt } from "uploadthing/tw";
+
+const config = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./**/*.{ts,tsx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        ".text-shadow-stroke": {
+          textShadow: `
+            -0.5px -0.5px 0 #000,  
+             0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+             0.5px 0.5px 0 #000
+          `,
+        },
+      });
+    },
+  ],
+} satisfies Config;
+
+export default withUt(config);
+
+
+=== Content of /home/sam/github/wheretolive/package.json ===
+
+{
+  "name": "nextjs-15-social-media-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate && prisma migrate deploy",
+    "upload-images": "ts-node -r tsconfig-paths/register scripts/uploadImages.ts"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^5.3.7",
+    "@clerk/themes": "^2.1.29",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/roboto": "^5.0.14",
+    "@hookform/resolvers": "^3.9.0",
+    "@lucia-auth/adapter-prisma": "^4.0.1",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@prisma/client": "^5.19.1",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
+    "@radix-ui/react-tooltip": "^1.1.2",
+    "@react-google-maps/api": "^2.19.3",
+    "@tanstack/react-query": "^5.50.1",
+    "@tanstack/react-query-devtools": "^5.50.1",
+    "@tiptap/extension-placeholder": "^2.4.0",
+    "@tiptap/pm": "^2.4.0",
+    "@tiptap/react": "^2.4.0",
+    "@tiptap/starter-kit": "^2.4.0",
+    "@uploadthing/react": "^6.7.2",
+    "@vis.gl/react-google-maps": "^1.1.3",
+    "arctic": "^1.9.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
+    "date-fns": "^3.6.0",
+    "html-react-parser": "^5.1.16",
+    "install": "^0.13.0",
+    "ky": "^1.4.0",
+    "lucia": "^3.2.0",
+    "lucide-react": "^0.402.0",
+    "next": "15.0.0-rc.0",
+    "next-intl": "^3.19.4",
+    "next-themes": "^0.3.0",
+    "npm": "^10.8.3",
+    "prisma": "^5.16.1",
+    "react": "19.0.0-rc-f994737d14-20240522",
+    "react-cropper": "^2.3.3",
+    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "react-hook-form": "^7.52.1",
+    "react-icons": "^5.3.0",
+    "react-image-file-resizer": "^0.4.8",
+    "react-intersection-observer": "^9.10.3",
+    "react-linkify-it": "^1.0.8",
+    "react-markdown": "^9.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.0",
+    "stream-chat": "^8.37.0",
+    "stream-chat-react": "^11.23.0",
+    "styled-components": "^6.1.12",
+    "svix": "^1.34.0",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "uploadthing": "^6.13.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.0-rc.0",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/package-lock.json ===
+
+Code present but not reported for space reasons
+
+=== Content of /home/sam/github/wheretolive/vercel.json ===
+
+{
+  "crons": [
+    {
+      "path": "/api/clear-uploads",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}
+
+
+=== Content of /home/sam/github/wheretolive/tsconfig.json ===
+
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
+
+=== Content of /home/sam/github/wheretolive/next-env.d.ts ===
+
+/// <reference types="next" />
+/// <reference types="next/image-types/global" />
+
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.
+
+
+=== Content of /home/sam/github/wheretolive/.eslintrc.json ===
+
+{
+  "extends": ["next/core-web-vitals", "prettier"]
+}
+
+
+=== Content of /home/sam/github/wheretolive/utils/helpers.ts ===
+
+export const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+
+  if (
+    process.env.VERCEL_ENV === "production" &&
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  return "http://localhost:3000";
+};
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/googlemapsdata.prisma ===
+
+model Parks {
+  id              String   @id @default(cuid())
+  postId          String
+  name            String
+  description     String
+  address         String
+  city            String
+  latitude        Float
+  longitude       Float
+  openingHours    String
+  types           String
+  rating          Float
+  userRatingTotal Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  zonaOmi         String?  @default("-")
+
+  @@map("parchi")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/feedback.prisma ===
+
+model Feedback {
+  id          String           @id @default(cuid())
+  content     String
+  userId      String
+  createdAt   DateTime         @default(now())
+  title       String           @default("")
+  comments    Comment[]
+  likes       LikeFeedback[]
+  attachments MediaFeedbacks[]
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("feedbacks")
+}
+
+model Comment {
+  id         String   @id @default(cuid())
+  content    String
+  userId     String
+  createdAt  DateTime @default(now())
+  feedbackId String
+  updatedAt  DateTime @updatedAt
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("feedback_comments")
+}
+
+model LikeFeedback {
+  userId     String
+  feedbackId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, feedbackId])
+  @@map("feedback_likes")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/post.prisma ===
+
+model Post {
+  id                  String              @id @default(cuid())
+  content             String
+  userId              String
+  createdAt           DateTime            @default(now())
+  city                String              @default("Milano")
+  country             String              @default("Italia")
+  region              String              @default("Lombardia")
+  type                String              @default("city")
+  zone                String              @default("-")
+  updatedAt           DateTime            @updatedAt
+  avgRentPerSqM       Float?              @default(0)
+  avgSalePerSqM       Float?              @default(0)
+  shortDescription    String              @default("")
+  title               String              @default("")
+  zoneOMI             String              @default("")
+  costOfLivingScore   Float?              @default(0)
+  finalScore          Float?              @default(0)
+  greenAreasScore     Float?              @default(0)
+  pollutionScore      Float?              @default(0)
+  qualityOfLifeScore  Float?              @default(0)
+  securityScore       Float?              @default(0)
+  transportationScore Float?              @default(0)
+  centroidLat         Float?              @default(0)
+  centroidLng         Float?              @default(0)
+  microZoneOMI        String              @default("")
+  bookmarks           Bookmark[]
+  featuresPostRatings FeaturePostRating[]
+  Like                Like[]
+  details             PostInfo[]
+  attachments         Media[]
+  metrics             PostMetrics[]
+  user                User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([type, city, zoneOMI])
+  @@map("posts")
+}
+
+model PostInfo {
+  id               String   @id @default(cuid())
+  postId           String
+  shortDescription String   @default("")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  post             Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("post_info")
+}
+
+model PostMetrics {
+  id            String   @id @default(cuid())
+  postId        String
+  avgSalePerSqM Float?
+  avgRentPerSqM Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  post          Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("post_metrics")
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  postId    String
+  createdAt DateTime @default(now())
+  udpatedAt DateTime @updatedAt
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+  @@map("bookmarks")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/airquality.prisma ===
+
+model AirQualityData {
+    id                 String   @id @default(cuid())
+    code               String
+    displayName        String
+    concentrationValue Float
+    concentrationUnits String
+    centroidLat        Float
+    centroidLng        Float
+    postId             String
+    zoneOMI            String?
+    city               String?
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    @@map("air_quality_data")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/zoneomi.prisma ===
+
+model Zona {
+    id                 String   @id @default(cuid())
+    zona               String?
+    zona_descr         String?
+    microzona          Float?
+    cod_tip_prev       Int?
+    regione            String?
+    prov               String?
+    comune_descrizione String?
+    fascia             String?
+    cod_tip            Int?
+    descr_tipologia    String?
+    stato              String?
+    stato_prev         String?
+    compr_min          Float?
+    compr_max          Float?
+    sup_nl_compr       String?
+    loc_min            String?
+    loc_max            String?
+    sup_nl_loc         String?
+    anno               String?
+    semestre           String?
+    data_elaborazione  String?
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    @@unique([regione, prov, zona, microzona, anno, semestre])
+    @@map("zona")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/media.prisma ===
+
+model Media {
+  id        String    @id @default(cuid())
+  postId    String?
+  type      MediaType
+  url       String
+  createdAt DateTime  @default(now())
+  order     Int?
+  updatedAt DateTime  @updatedAt
+  fileName  String
+  folder    String?
+  post      Post?     @relation(fields: [postId], references: [id])
+
+  @@map("post_media")
+}
+
+model MediaFeedbacks {
+  id         String    @id @default(cuid())
+  folder     String?
+  fileName   String
+  feedbackId String?
+  order      Int?
+  type       MediaType
+  url        String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  feedback   Feedback? @relation(fields: [feedbackId], references: [id])
+
+  @@map("feedback_media")
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/feature.prisma ===
+
+model ListFeature {
+  id                  String              @id @default(cuid())
+  name                String
+  description         String?
+  type                String?
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  label               String?
+  featuresPostRatings FeaturePostRating[]
+
+  @@unique([name])
+  @@map("list_features")
+}
+
+model FeaturePostRating {
+  id                 String      @id @default(cuid())
+  name               String
+  postId             String
+  featureId          String
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  finalRating        Float?
+  finalRatingComment String?
+  finalRatingCount   Int?
+  feature            ListFeature @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  post               Post        @relation(fields: [postId], references: [id], onDelete: Cascade)
+  likes              Like[]
+
+  @@map("features_post_rating")
+}
+
+model Like {
+  userId              String
+  rating              Float?
+  postId              String
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+  featurePostRatingId String
+  featurePostRating   FeaturePostRating @relation(fields: [featurePostRatingId], references: [id], onDelete: Cascade)
+  post                Post              @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user                User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId, featurePostRatingId])
+  @@map("likes")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/user.prisma ===
+
+model User {
+  id             String         @id
+  bio            String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  email          String?        @unique
+  imageUrl       String?
+  bookmarks      Bookmark[]
+  comments       Comment[]
+  votesFeedbacks LikeFeedback[]
+  feedbacks      Feedback[]
+  likes          Like[]
+  posts          Post[]
+
+  @@map("users")
+}
+
+
+=== Content of /home/sam/github/wheretolive/prisma/schema/main.prisma ===
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "prismaSchemaFolder"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+
+=== Content of /home/sam/github/wheretolive/types/metricMappings.ts ===
+
+// metricMappings.ts
+
+export const METRIC_MAPPINGS = {
+  avgSalePerSqM: { label: "Vendita Immobile", unit: "€/m²" },
+  avgRentPerSqM: { label: "Affitto Immobile", unit: "€/m²" },
+  pollutionScore: { label: "Inquinamento", unit: "pm2.5" },
+} as const;
+
+export type MetricKey = keyof typeof METRIC_MAPPINGS;
+
+export function getMetricLabel(key: MetricKey): string {
+  return METRIC_MAPPINGS[key].label;
+}
+
+export function getMetricUnit(key: MetricKey): string {
+  return METRIC_MAPPINGS[key].unit;
+}
+
+export function getFullMetricLabel(key: MetricKey): string {
+  return `${METRIC_MAPPINGS[key].label} (${METRIC_MAPPINGS[key].unit})`;
+}
+
+// Aggiungi questa funzione per la sicurezza del tipo
+export function isValidMetricKey(key: string): key is MetricKey {
+  return key in METRIC_MAPPINGS;
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/sitemap.ts ===
+
+import type { MetadataRoute } from "next";
+
+import { getBaseUrl } from "@/utils/helpers";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: `${getBaseUrl()}/`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
+  ];
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/ReactQueryProvider.tsx ===
+
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useState } from "react";
+
+export default function ReactQueryProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [client] = useState(new QueryClient());
+
+  return (
+    <QueryClientProvider client={client}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/loading.tsx ===
+
+import { Loader2 } from "lucide-react";
+
+export default function Loading() {
+  return <Loader2 className="mx-auto my-3 animate-spin" />;
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/robots.ts ===
+
+import type { MetadataRoute } from "next";
+
+import { getBaseUrl } from "@/utils/helpers";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${getBaseUrl()}/sitemap.xml`,
+  };
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/layout.tsx ===
+
+import { Toaster } from "@/components/ui/toaster";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import localFont from "next/font/local";
+import { extractRouterConfig } from "uploadthing/server";
+import { fileRouter } from "./api/uploadthing/core";
+import "./globals.css";
+import ReactQueryProvider from "./ReactQueryProvider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+});
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Dove Vivere",
+    default: "Dove Vivere",
+  },
+  description: "Find the best place to live",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <ClerkProvider appearance={{ baseTheme: dark }}>
+      <html lang="it">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
+          <ReactQueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem={true}
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </ReactQueryProvider>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(auth)/sign-in/[[...sign-in]]/page.tsx ===
+
+import Image from "next/image";
+import { Loader2 } from "lucide-react";
+import { SignIn, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+
+export default function Page() {
+  return (
+    <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
+      <div className="h-full flex-col items-center justify-center px-4 lg:flex">
+        <div className="space-y-4 pt-16 text-center">
+          <h1 className="text-3xl font-bold text-[#2E2A47]">Welcome Back!</h1>
+          <p className="text-base text-[#7E8CA0]">
+            Log in or Create account to get back to your dashboard!
+          </p>
+        </div>
+        <div className="mt-8 flex items-center justify-center">
+          <ClerkLoaded>
+            <SignIn path="/sign-in" forceRedirectUrl="/home" />
+          </ClerkLoaded>
+          <ClerkLoading>
+            <Loader2 className="animate-spin text-muted-foreground" />
+          </ClerkLoading>
+        </div>
+      </div>
+      <div className="hidden h-full items-center justify-center bg-blue-600 lg:flex">
+        {/* <Image src="/logo.png" height={100} width={100} alt="Logo" /> */}
+      </div>
+    </div>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(auth)/sign-up/[[...sign-up]]/page.tsx ===
+
+import Image from "next/image";
+import { Loader2 } from "lucide-react";
+import { SignUp, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+
+export default function Page() {
+  return (
+    <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
+      <div className="h-full flex-col items-center justify-center px-4 lg:flex">
+        <div className="space-y-4 pt-16 text-center">
+          <h1 className="text-3xl font-bold text-[#2E2A47]">Welcome Back!</h1>
+          <p className="text-base text-[#7E8CA0]">
+            Log in or Create account to get back to your dashboard!
+          </p>
+        </div>
+        <div className="mt-8 flex items-center justify-center">
+          <ClerkLoaded>
+            <SignUp path="/sign-up" forceRedirectUrl="/home" />
+          </ClerkLoaded>
+          <ClerkLoading>
+            <Loader2 className="animate-spin text-muted-foreground" />
+          </ClerkLoading>
+        </div>
+      </div>
+      <div className="hidden h-full items-center justify-center bg-blue-600 lg:flex">
+        {/* <Image src="/logo.svg" height={100} width={100} alt="Logo" /> */}
+      </div>
+    </div>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/not-found.tsx ===
+
+export default function NotFound() {
+  return (
+    <main className="my-12 w-full space-y-3 text-center">
+      <h1 className="text-3xl font-bold">Not Found</h1>
+      <p>The page you are looking for does not exist.</p>
+    </main>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/loading.tsx ===
+
+import { Loader2 } from "lucide-react";
+
+export default function Loading() {
+  return <Loader2 className="mx-auto my-3 animate-spin" />;
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/page.tsx ===
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import Navbar from "./_components/Navbar";
+
+import { auth } from "@clerk/nextjs/server";
+import Posts from "@/components/Posts";
+import BackgroundVideo from "@/components/BackgoundVideos";
+export default function Home() {
+  return (
+    <main className="relative mx-auto flex w-full grow gap-5">
+      <div className="w-full min-w-0">
+        <BackgroundVideo>
+          <div className="max-h-screen min-h-80 w-full pt-[4vh] md:pt-[12vh]">
+            <div className="relative z-20 mx-auto flex h-full w-[95%] flex-col items-center justify-center sm:w-[80%]">
+              <h1 className="mt-4 text-center text-3xl font-semibold text-white sm:text-5xl">
+                Dove Vivere
+              </h1>
+              <p className="mt-4 text-center text-sm text-white sm:text-base">
+                Quali città e aree esplorare, dove trasferirsi, dove vivere? In
+                ogni fase della nostra vita, esistono luoghi che, in modi
+                diversi, possono influenzare profondamente il nostro percorso e
+                orientare le nostre scelte. Cultura, stile di vita, costo della
+                vita, sicurezza, inquinamento, qualità del cibo, opportunità
+                lavorative: sono solo alcuni degli aspetti da considerare. In un
+                mondo che corre sempre più veloce, con una quantità crescente di
+                dati e informazioni, diventa sempre più difficile orientarsi,
+                cercare, capire. Proviamo a fare chiarezza, iniziando
+                dall'Italia, esplorando una città alla volta, una zona alla
+                volta, e vediamo questo viaggio dove ci condurrà
+              </p>
+            </div>
+          </div>
+        </BackgroundVideo>
+        <Navbar />
+
+        <div className="mt-5 w-full min-w-0 space-y-5 p-5">
+          <Tabs defaultValue="areas">
+            <TabsList>
+              <TabsTrigger value="areas">Zone</TabsTrigger>
+              {/* <TabsTrigger value="cities">Città</TabsTrigger> */}
+            </TabsList>
+
+            <TabsContent value="areas">
+              <Posts type="zone" />
+            </TabsContent>
+            <TabsContent value="cities">
+              <Posts type="city" />
+            </TabsContent>
+          </Tabs>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/layout.tsx ===
+
+import Link from "next/link";
+import { FaLightbulb, FaBug } from "react-icons/fa";
+import FeedbackButton from "./_components/FeedbackButton";
+
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      {children}
+      <FeedbackButton />
+    </div>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/MenuBar.tsx ===
+
+import { Button } from "@/components/ui/button";
+import prisma from "@/lib/prisma";
+
+import { Bookmark, Home } from "lucide-react";
+import Link from "next/link";
+
+import PostEditorButton from "@/components/PostEditorButton";
+import UserButtonProfile from "@/components/UserButton";
+
+import { auth } from "@clerk/nextjs/server";
+
+interface MenuBarProps {
+  className?: string;
+}
+
+export default async function MenuBar({ className }: MenuBarProps) {
+  const { userId } = auth();
+
+  if (!userId) return null;
+
+  // const [unreadNotificationsCount, unreadMessagesCount] = await Promise.all([
+  //   prisma.notification.count({
+  //     where: {
+  //       recipientId: userId,
+  //       read: false,
+  //     },
+  //   }),
+  //   (await streamServerClient.getUnreadCount(userId)).total_unread_count,
+  // ]);
+
+  return (
+    <div className={className}>
+      {/* <Button
+        variant="ghost"
+        className="flex items-center justify-start gap-3"
+        title="Home"
+        asChild
+      >
+        <Link href="/">
+          <Home />
+          <span className="hidden lg:inline">Home</span>
+        </Link>
+      </Button>
+      <NotificationsButton
+        initialState={{ unreadCount: unreadNotificationsCount }}
+      />
+      <MessagesButton initialState={{ unreadCount: unreadMessagesCount }} /> */}
+      {/* <PostEditorButton /> */}
+      <Button
+        variant="ghost"
+        className="flex items-center justify-start gap-3"
+        title="Bookmarks"
+        asChild
+      >
+        <Link href="/bookmarks">
+          <Bookmark />
+          <span className="hidden lg:inline">Bookmarks</span>
+        </Link>
+      </Button>
+      <UserButtonProfile />
+    </div>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/home/page.tsx ===
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Posts from "@/components/Posts";
+import { processAllPosts } from "@/lib/uploadImages";
+import Navbar from "../_components/Navbar";
+
+// Variabile globale per tracciare se processAllPosts è già stata eseguita
+let hasProcessedPosts = false;
+
+export default async function Home() {
+  // // Esegui processAllPosts solo se non è già stato eseguito
+  // if (!hasProcessedPosts) {
+  //   await processAllPosts();
+  //   hasProcessedPosts = true; // Imposta il flag a true dopo l'esecuzione
+  // }
+
+  return (
+    <>
+      <Navbar />
+      <main className="mx-auto flex w-full grow gap-5 p-5">
+        <div className="w-full min-w-0">
+          <div className="mt-5 w-full min-w-0 space-y-5">
+            <Tabs defaultValue="areas">
+              <TabsList>
+                <TabsTrigger value="areas">Zone</TabsTrigger>
+                {/* <TabsTrigger value="cities">Città</TabsTrigger> */}
+              </TabsList>
+              <TabsContent value="cities">
+                <Posts type="city" />
+              </TabsContent>
+              <TabsContent value="areas">
+                <Posts type="zone" />
+              </TabsContent>
+            </Tabs>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/(main)/feedbacks/page.tsx ===
+
+import NavbarFeedbacks from "./_components/NavbarFeedbacks";
+import FeedbackEditor from "@/components/feedbacks/editor/FeedbackEditor";
+import Feedbacks from "@/components/Feedbacks";
+
+export default function HomeFeedback() {
+  return (
+    <>
+      <NavbarFeedbacks />
+      <main className="mx-auto w-full max-w-4xl p-4 sm:max-w-3xl lg:max-w-2xl">
+        <FeedbackEditor />
+        <div className="mt-8">
+          <Feedbacks />
+        </div>
+      </main>
+    </>
+  );
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/uploadthing/core.ts ===
+
+import prisma from "@/lib/prisma";
+import { auth } from "@clerk/nextjs/server";
+import { createUploadthing, FileRouter } from "uploadthing/next";
+import { UploadThingError } from "uploadthing/server";
+
+const f = createUploadthing();
+
+export const fileRouter = {
+  postAttachment: f({
+    image: { maxFileSize: "4MB", maxFileCount: 5 },
+    video: { maxFileSize: "64MB", maxFileCount: 5 },
+  })
+    .middleware(async () => {
+      const { userId } = auth();
+
+      if (!userId) throw new UploadThingError("Unauthorized");
+
+      return {};
+    })
+    .onUploadComplete(async ({ file }) => {
+      const appId = process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID;
+      if (!appId) {
+        throw new Error("NEXT_PUBLIC_UPLOADTHING_APP_ID is not defined");
+      }
+
+      const media = await prisma.media.create({
+        data: {
+          url: file.url.replace(
+            "/f/",
+            `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
+          ),
+          type: file.type.startsWith("image") ? "IMAGE" : "VIDEO",
+          fileName: file.name,
+          folder: "placeholder",
+        },
+      });
+
+      return { mediaId: media.id };
+    }),
+
+  feedbackAttachment: f({
+    image: { maxFileSize: "4MB", maxFileCount: 5 },
+    video: { maxFileSize: "64MB", maxFileCount: 5 },
+  })
+    .middleware(async () => {
+      const { userId } = auth();
+
+      console.log("userId uploadthing", userId);
+
+      if (!userId) throw new UploadThingError("Unauthorized");
+
+      return {};
+    })
+    .onUploadComplete(async ({ file }) => {
+      const appId = process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID;
+      if (!appId) {
+        throw new Error("NEXT_PUBLIC_UPLOADTHING_APP_ID is not defined");
+      }
+
+      const media = await prisma.mediaFeedbacks.create({
+        data: {
+          url: file.url.replace(
+            "/f/",
+            `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
+          ),
+          type: file.type.startsWith("image") ? "IMAGE" : "VIDEO",
+          fileName: file.name,
+          folder: "placeholder",
+        },
+      });
+
+      return { mediaId: media.id };
+    }),
+} satisfies FileRouter;
+
+export type AppFileRouter = typeof fileRouter;
+
+
+=== Content of /home/sam/github/wheretolive/app/api/uploadthing/route.ts ===
+
+import { createRouteHandler } from "uploadthing/next";
+import { fileRouter } from "./core";
+
+export const { GET, POST } = createRouteHandler({
+  router: fileRouter,
+});
+
+
+=== Content of /home/sam/github/wheretolive/app/api/feedbacks/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { getFeedbackDataInclude } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
+
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+  try {
+    const cursor = req.nextUrl.searchParams.get("cursor") || undefined;
+
+    const pageSize = 10;
+
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const feedbacks = await prisma.feedback.findMany({
+      include: getFeedbackDataInclude(userId),
+      orderBy: { createdAt: "desc" },
+      take: pageSize + 1,
+      cursor: cursor ? { id: cursor } : undefined,
+    });
+
+    const nextCursor =
+      feedbacks.length > pageSize ? feedbacks[pageSize].id : null;
+
+    const data = {
+      feedbacks: feedbacks.slice(0, pageSize),
+      nextCursor,
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/feedbacks/[feedbackId]/comments/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { CommentsPage, getCommentDataInclude } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
+import { NextRequest } from "next/server";
+
+export async function GET(
+  req: NextRequest,
+  { params: { feedbackId } }: { params: { feedbackId: string } },
+) {
+  try {
+    const cursor = req.nextUrl.searchParams.get("cursor") || undefined;
+
+    const pageSize = 5;
+
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const comments = await prisma.comment.findMany({
+      where: { feedbackId },
+      include: getCommentDataInclude(userId),
+      orderBy: { createdAt: "asc" },
+      take: -pageSize - 1,
+      cursor: cursor ? { id: cursor } : undefined,
+    });
+
+    const previousCursor = comments.length > pageSize ? comments[0].id : null;
+
+    const data: CommentsPage = {
+      comments: comments.length > pageSize ? comments.slice(1) : comments,
+      previousCursor,
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/feedbacks/[feedbackId]/likes/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { LikeInfo } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
+
+export async function GET(
+  req: Request,
+  { params: { feedbackId } }: { params: { feedbackId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const feedback = await prisma.feedback.findUnique({
+      where: { id: feedbackId },
+      select: {
+        likes: {
+          where: {
+            userId: userId,
+          },
+          select: {
+            userId: true,
+          },
+        },
+        _count: {
+          select: {
+            likes: true,
+          },
+        },
+      },
+    });
+
+    if (!feedback) {
+      return Response.json({ error: "Post not found" }, { status: 404 });
+    }
+
+    const data: LikeInfo = {
+      likes: feedback._count.likes,
+      isLikedByUser: !!feedback.likes.length,
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+export async function POST(
+  req: Request,
+  { params: { feedbackId } }: { params: { feedbackId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const feedback = await prisma.feedback.findUnique({
+      where: { id: feedbackId },
+      select: {
+        userId: true,
+      },
+    });
+
+    if (!feedback) {
+      return Response.json({ error: "Post not found" }, { status: 404 });
+    }
+
+    await prisma.$transaction([
+      prisma.likeFeedback.upsert({
+        where: {
+          userId_feedbackId: {
+            userId: userId,
+            feedbackId,
+          },
+        },
+        create: {
+          userId: userId,
+          feedbackId,
+        },
+        update: {},
+      }),
+    ]);
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+export async function DELETE(
+  req: Request,
+  { params: { feedbackId } }: { params: { feedbackId: string } },
+) {
+  try {
+    const { userId } = auth();
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const feedback = await prisma.feedback.findUnique({
+      where: { id: feedbackId },
+      select: {
+        userId: true,
+      },
+    });
+
+    if (!feedback) {
+      return Response.json({ error: "Post not found" }, { status: 404 });
+    }
+
+    await prisma.$transaction([
+      prisma.likeFeedback.deleteMany({
+        where: {
+          userId: userId,
+          feedbackId,
+        },
+      }),
+    ]);
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/clear-uploads/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { UTApi } from "uploadthing/server";
+
+export async function GET(req: Request) {
+  try {
+    const authHeader = req.headers.get("Authorization");
+
+    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+      return Response.json(
+        { message: "Invalid authorization header" },
+        { status: 401 },
+      );
+    }
+
+    const unusedMedia = await prisma.media.findMany({
+      where: {
+        postId: null,
+        ...(process.env.NODE_ENV === "production"
+          ? {
+              createdAt: {
+                lte: new Date(Date.now() - 1000 * 60 * 60 * 24),
+              },
+            }
+          : {}),
+      },
+      select: {
+        id: true,
+        url: true,
+      },
+    });
+
+    new UTApi().deleteFiles(
+      unusedMedia.map(
+        (m) =>
+          m.url.split(`/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`)[1],
+      ),
+    );
+
+    await prisma.media.deleteMany({
+      where: {
+        id: {
+          in: unusedMedia.map((m) => m.id),
+        },
+      },
+    });
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { auth } from "@clerk/nextjs/server";
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+  try {
+    const cursor = req.nextUrl.searchParams.get("cursor") || undefined;
+    const order = req.nextUrl.searchParams.get("order") || "desc";
+    const sortBy = req.nextUrl.searchParams.get("sortBy") || "createdAt";
+    const type = req.nextUrl.searchParams.get("type") || "zone";
+
+    const pageSize = 10;
+
+    const { userId } = auth();
+
+    // If the user is not authenticated, limit the results to the first 10 posts
+    const isAuthenticated = !!userId;
+
+    const posts = await prisma.post.findMany({
+      where: {
+        type: type,
+      },
+      include: {
+        attachments: true,
+        featuresPostRatings: {
+          include: {
+            likes: {
+              where: {
+                userId: userId !== null ? { equals: userId } : undefined,
+              },
+              select: {
+                userId: true,
+                rating: true,
+              },
+            },
+            _count: {
+              select: {
+                likes: true,
+              },
+            },
+          },
+        },
+        bookmarks: isAuthenticated
+          ? {
+              where: {
+                userId: userId,
+              },
+              select: {
+                userId: true,
+              },
+            }
+          : false, // No bookmarks for unauthenticated users
+      },
+      orderBy: { [sortBy]: order === "asc" ? "asc" : "desc" },
+      take: pageSize + (isAuthenticated ? 1 : 0), // Fetch one extra post for pagination if authenticated
+      cursor: cursor ? { id: cursor } : undefined,
+    });
+
+    // If authenticated, handle pagination
+    const nextCursor =
+      isAuthenticated && posts.length > pageSize ? posts[pageSize].id : null;
+
+    const data = {
+      posts: posts.slice(0, pageSize), // Always return only the first 10 posts
+      nextCursor: isAuthenticated ? nextCursor : null, // Only provide nextCursor if authenticated
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/features/route.ts ===
+
+import { NextApiRequest, NextApiResponse } from "next";
+import prisma from "@/lib/prisma";
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+  try {
+    const listFeatures = await prisma.listFeature.findMany();
+    return Response.json(listFeatures);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "An error occurred" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/bookmarked/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { getPostDataInclude, PostsPage } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+  try {
+    const cursor = req.nextUrl.searchParams.get("cursor") || undefined;
+
+    const pageSize = 10;
+
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const bookmarks = await prisma.bookmark.findMany({
+      where: {
+        userId: userId,
+      },
+      include: {
+        post: {
+          include: getPostDataInclude(userId),
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: pageSize + 1,
+      cursor: cursor ? { id: cursor } : undefined,
+    });
+
+    const nextCursor =
+      bookmarks.length > pageSize ? bookmarks[pageSize].id : null;
+
+    const data: PostsPage = {
+      posts: bookmarks.slice(0, pageSize).map((bookmark) => bookmark.post),
+      nextCursor,
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/[postId]/features/[featureId]/rating/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { NextRequest } from "next/server";
+
+export async function GET(
+  req: NextRequest,
+  {
+    params: { postId, featureId },
+  }: { params: { postId: string; featureId: string } },
+) {
+  try {
+    // Fetch the FeaturePostRating for the specified postId and featureId
+    const featurePostRating = await prisma.featurePostRating.findFirst({
+      where: {
+        postId: postId,
+        featureId: featureId,
+      },
+      select: {
+        finalRating: true,
+        finalRatingCount: true,
+        finalRatingComment: true,
+      },
+    });
+
+    if (!featurePostRating) {
+      return new Response(
+        JSON.stringify({ error: "FeaturePostRating not found" }),
+        {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        finalRating: featurePostRating.finalRating,
+        finalRatingCount: featurePostRating.finalRatingCount,
+        finalRatingComment: featurePostRating.finalRatingComment,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/[postId]/features/[featureId]/likes/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { auth } from "@clerk/nextjs/server";
+
+export async function POST(
+  req: Request,
+  {
+    params: { postId, featureId },
+  }: { params: { postId: string; featureId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { rating } = await req.json();
+
+    // Verifica se esiste un record FeaturePostRating
+    let featurePostRating = await prisma.featurePostRating.findFirst({
+      where: { postId: postId, featureId: featureId },
+    });
+
+    // Se non esiste, crealo
+    if (!featurePostRating) {
+      // Recupera il nome della feature da ListFeature
+      const listFeature = await prisma.listFeature.findUnique({
+        where: { id: featureId },
+      });
+
+      if (!listFeature) {
+        return Response.json({ error: "Feature not found" }, { status: 404 });
+      }
+
+      featurePostRating = await prisma.featurePostRating.create({
+        data: {
+          name: listFeature.name,
+          postId: postId,
+          featureId: featureId,
+        },
+      });
+    }
+
+    // Upsert del voto
+    await prisma.like.upsert({
+      where: {
+        userId_postId_featurePostRatingId: {
+          userId: userId,
+          postId: postId,
+          featurePostRatingId: featurePostRating.id,
+        },
+      },
+      create: {
+        userId: userId,
+        postId: postId,
+        featurePostRatingId: featurePostRating.id,
+        rating,
+      },
+      update: {
+        rating,
+      },
+    });
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/posts/[postId]/bookmark/route.ts ===
+
+import prisma from "@/lib/prisma";
+import { BookmarkInfo } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
+
+export async function GET(
+  req: Request,
+  { params: { postId } }: { params: { postId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const bookmark = await prisma.bookmark.findUnique({
+      where: {
+        userId_postId: {
+          userId: userId,
+          postId,
+        },
+      },
+    });
+
+    const data: BookmarkInfo = {
+      isBookmarkedByUser: !!bookmark,
+    };
+
+    return Response.json(data);
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+export async function POST(
+  req: Request,
+  { params: { postId } }: { params: { postId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    await prisma.bookmark.upsert({
+      where: {
+        userId_postId: {
+          userId: userId,
+          postId,
+        },
+      },
+      create: {
+        userId: userId,
+        postId,
+      },
+      update: {},
+    });
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+export async function DELETE(
+  req: Request,
+  { params: { postId } }: { params: { postId: string } },
+) {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    await prisma.bookmark.deleteMany({
+      where: {
+        userId: userId,
+        postId,
+      },
+    });
+
+    return new Response();
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+
+=== Content of /home/sam/github/wheretolive/app/api/webhooks/clerk/route.ts ===
+
+import { Webhook } from "svix";
+import { headers } from "next/headers";
+import { WebhookEvent } from "@clerk/nextjs/server";
+//
+import { createUser, deleteUser, updateUser } from "@/lib/users";
+import { User } from "@prisma/client";
+
+export async function POST(req: Request) {
+  // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
+  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+
+  if (!WEBHOOK_SECRET) {
+    throw new Error(
+      "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local",
+    );
+  }
+
+  // Get the headers
+  const headerPayload = headers();
+  const svix_id = headerPayload.get("svix-id");
+  const svix_timestamp = headerPayload.get("svix-timestamp");
+  const svix_signature = headerPayload.get("svix-signature");
+
+  // If there are no headers, error out
+  if (!svix_id || !svix_timestamp || !svix_signature) {
+    return new Response("Error occured -- no svix headers", {
+      status: 400,
+    });
+  }
+
+  const payload = await req.json();
+  const body = JSON.stringify(payload);
+
+  console.log("Webhook payload:", body);
+
+  // Create a new Svix instance with your secret.
+  const wh = new Webhook(WEBHOOK_SECRET);
+
+  let evt: WebhookEvent;
+
+  // Verify the payload with the headers
+  try {
+    evt = wh.verify(body, {
+      "svix-id": svix_id,
+      "svix-timestamp": svix_timestamp,
+      "svix-signature": svix_signature,
+    }) as WebhookEvent;
+  } catch (err) {
+    console.error("Error verifying webhook:", err);
+    return new Response("Error occured", {
+      status: 400,
+    });
+  }
+
+  const eventType = evt.type;
+
+  if (eventType === "user.created") {
+    const { id, email_addresses, image_url } = evt.data;
+    if (!id || !email_addresses) {
+      return new Response("Error occured -- no user data", {
+        status: 400,
+      });
+    }
+    const user = {
+      id: id,
+      email: email_addresses[0].email_address,
+      ...(image_url ? { imageUrl: image_url } : {}),
+    };
+
+    await createUser(user as User);
+  } else if (eventType === "user.updated") {
+    const { id, email_addresses, image_url } = evt.data;
+    if (!id || !email_addresses) {
+      return new Response("Error occured -- no user data", {
+        status: 400,
+      });
+    }
+    const user = {
+      email: email_addresses[0].email_address,
+
+      ...(image_url ? { imageUrl: image_url } : {}),
+    };
+
+    await updateUser(id, user as Partial<User>);
+  } else if (eventType === "user.deleted") {
+    const { id } = evt.data;
+    if (!id) {
+      return new Response("Error occured -- no user id", {
+        status: 400,
+      });
+    }
+
+    await deleteUser(id);
+  }
+
+  return new Response("", { status: 200 });
+}
+
+
+=== Content of /home/sam/github/wheretolive/hooks/useMediaUpload.ts ===
+
+import { useToast } from "@/components/ui/use-toast";
+import { useUploadThing } from "@/lib/uploadthing";
+import { useState } from "react";
+
+export interface Attachment {
+  file: File;
+  mediaId?: string;
+  isUploading: boolean;
+  folder?: string;
+  order?: number;
+}
+
+export default function useMediaUpload(
+  uploadType: "postAttachment" | "feedbackAttachment",
+) {
+  const { toast } = useToast();
+
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
+
+  const [uploadProgress, setUploadProgress] = useState<number>();
+
+  const { startUpload, isUploading } = useUploadThing(uploadType, {
+    onBeforeUploadBegin(files) {
+      const renamedFiles = files.map((file) => {
+        const extension = file.name.split(".").pop();
+        return new File(
+          [file],
+          `attachment_${crypto.randomUUID()}.${extension}`,
+          {
+            type: file.type,
+          },
+        );
+      });
+
+      setAttachments((prev) => [
+        ...prev,
+        ...renamedFiles.map((file) => ({ file, isUploading: true })),
+      ]);
+
+      return renamedFiles;
+    },
+    onUploadProgress: setUploadProgress,
+    onClientUploadComplete(res) {
+      setAttachments((prev) =>
+        prev.map((a) => {
+          const uploadResult = res.find((r) => r.name === a.file.name);
+
+          if (!uploadResult) return a;
+
+          return {
+            ...a,
+            mediaId: uploadResult.serverData.mediaId,
+            isUploading: false,
+          };
+        }),
+      );
+    },
+    onUploadError(e) {
+      setAttachments((prev) => prev.filter((a) => !a.isUploading));
+      toast({
+        variant: "destructive",
+        description: e.message,
+      });
+    },
+  });
+
+  function handleStartUpload(files: File[]) {
+    if (isUploading) {
+      toast({
+        variant: "destructive",
+        description: "Please wait for the current upload to finish.",
+      });
+      return;
+    }
+
+    if (attachments.length + files.length > 5) {
+      toast({
+        variant: "destructive",
+        description: "You can only upload up to 5 attachments per post.",
+      });
+      return;
+    }
+
+    startUpload(files);
+  }
+
+  function removeAttachment(fileName: string) {
+    setAttachments((prev) => prev.filter((a) => a.file.name !== fileName));
+  }
+
+  function reset() {
+    setAttachments([]);
+    setUploadProgress(undefined);
+  }
+
+  return {
+    startUpload: handleStartUpload,
+    attachments,
+    isUploading,
+    uploadProgress,
+    removeAttachment,
+    reset,
+  };
+}
+
+
+=== Content of /home/sam/github/wheretolive/hooks/useDebounce.ts ===
+
+import { useEffect, useState } from "react";
+
+export default function useDebounce<T>(value: T, delay: number = 250): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+
+  return debouncedValue;
+}

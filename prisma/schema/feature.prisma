@@ -1,0 +1,45 @@
+model ListFeature {
+  id                  String              @id @default(cuid())
+  name                String
+  description         String?
+  type                String?
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  label               String?
+  featuresPostRatings FeaturePostRating[]
+
+  @@unique([name])
+  @@map("list_features")
+}
+
+model FeaturePostRating {
+  id                 String      @id @default(cuid())
+  name               String
+  postId             String
+  featureId          String
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  finalRating        Float?
+  finalRatingComment String?
+  finalRatingCount   Int?
+  feature            ListFeature @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  post               Post        @relation(fields: [postId], references: [id], onDelete: Cascade)
+  likes              Like[]
+
+  @@map("features_post_rating")
+}
+
+model Like {
+  userId              String
+  rating              Float?
+  postId              String
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+  featurePostRatingId String
+  featurePostRating   FeaturePostRating @relation(fields: [featurePostRatingId], references: [id], onDelete: Cascade)
+  post                Post              @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user                User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId, featurePostRatingId])
+  @@map("likes")
+}

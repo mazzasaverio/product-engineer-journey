@@ -1,0 +1,34 @@
+model Media {
+  id        String    @id @default(cuid())
+  postId    String?
+  type      MediaType
+  url       String
+  createdAt DateTime  @default(now())
+  order     Int?
+  updatedAt DateTime  @updatedAt
+  fileName  String
+  folder    String?
+  post      Post?     @relation(fields: [postId], references: [id])
+
+  @@map("post_media")
+}
+
+model MediaFeedbacks {
+  id         String    @id @default(cuid())
+  folder     String?
+  fileName   String
+  feedbackId String?
+  order      Int?
+  type       MediaType
+  url        String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  feedback   Feedback? @relation(fields: [feedbackId], references: [id])
+
+  @@map("feedback_media")
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}

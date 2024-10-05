@@ -1,0 +1,73 @@
+model Post {
+  id                  String              @id @default(cuid())
+  content             String
+  userId              String
+  createdAt           DateTime            @default(now())
+  city                String              @default("Milano")
+  country             String              @default("Italia")
+  region              String              @default("Lombardia")
+  type                String              @default("city")
+  zone                String              @default("-")
+  updatedAt           DateTime            @updatedAt
+  avgRentPerSqM       Float?              @default(0)
+  avgSalePerSqM       Float?              @default(0)
+  shortDescription    String              @default("")
+  title               String              @default("")
+  zoneOMI             String              @default("")
+  costOfLivingScore   Float?              @default(0)
+  finalScore          Float?              @default(0)
+  greenAreasScore     Float?              @default(0)
+  pollutionScore      Float?              @default(0)
+  qualityOfLifeScore  Float?              @default(0)
+  securityScore       Float?              @default(0)
+  transportationScore Float?              @default(0)
+  centroidLat         Float?              @default(0)
+  centroidLng         Float?              @default(0)
+  microZoneOMI        String              @default("")
+  bookmarks           Bookmark[]
+  featuresPostRatings FeaturePostRating[]
+  Like                Like[]
+  details             PostInfo[]
+  attachments         Media[]
+  metrics             PostMetrics[]
+  user                User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([type, city, zoneOMI])
+  @@map("posts")
+}
+
+model PostInfo {
+  id               String   @id @default(cuid())
+  postId           String
+  shortDescription String   @default("")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  post             Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("post_info")
+}
+
+model PostMetrics {
+  id            String   @id @default(cuid())
+  postId        String
+  avgSalePerSqM Float?
+  avgRentPerSqM Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  post          Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("post_metrics")
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  postId    String
+  createdAt DateTime @default(now())
+  udpatedAt DateTime @updatedAt
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+  @@map("bookmarks")
+}
