@@ -1,30 +1,22 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Navbar from "./_components/Navbar";
 import Posts from "@/components/Posts";
-import BackgroundVideo from "@/components/BackgoundVideos";
 
 export default function Home() {
   return (
-    <main className="relative mx-auto flex w-full grow gap-5">
-      <div className="w-full min-w-0">
-        <Navbar />
-
-        <div className="mt-5 w-full min-w-0 space-y-5 p-5">
-          <Tabs defaultValue="areas">
-            <TabsList>
-              <TabsTrigger value="areas">Posts</TabsTrigger>
-              <TabsTrigger value="cities">Dev News</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="areas">
-              <Posts type="zone" />
-            </TabsContent>
-            <TabsContent value="cities">
-              <Posts type="city" />
-            </TabsContent>
-          </Tabs>
-        </div>
-      </div>
-    </main>
+    <div className="space-y-6">
+      
+      <Tabs defaultValue="posts">
+        <TabsList className="w-full">
+          <TabsTrigger value="posts" className="flex-1">Posts</TabsTrigger>
+          <TabsTrigger value="news" className="flex-1">Dev News</TabsTrigger>
+        </TabsList>
+        <TabsContent value="posts">
+          <Posts type="zone" />
+        </TabsContent>
+        <TabsContent value="news">
+          <Posts type="city" />
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 }
